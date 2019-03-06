@@ -21,6 +21,9 @@ db/*.sqlite3
 /log/*
 /tmp/*
 
+# react specific
+/node_modules/
+
 # configuration file introduced in Rails 4.1
 # but we'll allow it for these dev projects
 # config/secrets.yml
