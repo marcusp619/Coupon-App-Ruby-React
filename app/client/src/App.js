@@ -3,6 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  async componentDidMount() {
+    const test = await fetch('http://localhost:3000/retailer/1');
+    const result = await test.json();
+    console.log(result);
+  }
   render() {
     return (
       <div className="App">

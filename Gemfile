@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development do
+  gem 'rack-cors'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
