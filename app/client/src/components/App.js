@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import Navbar from "./Navbar/Navbar";
 import OfferList from "./OfferList/OfferList";
 import Cart from "./Cart/Cart";
