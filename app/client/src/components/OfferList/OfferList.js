@@ -1,11 +1,8 @@
 import React, { Fragment, useContext } from "react";
 import Offer from "../Offer/Offer";
-import Row from "react-bootstrap/Row";
 import Title from "../Title/Title";
 import styled from "styled-components";
 import { OfferContext } from "../Context/Context";
-import CardGroup from "react-bootstrap/CardGroup";
-import CardDeck from "react-bootstrap/CardDeck";
 
 function OfferList() {
   const { offers } = useContext(OfferContext);
@@ -23,7 +20,7 @@ function OfferList() {
   );
 }
 const Container = styled.div`
-  padding: 30px;
+  padding: 50px;
 `;
 
 const GridContainer = styled.div`
