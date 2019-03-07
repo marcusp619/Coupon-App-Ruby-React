@@ -10,25 +10,33 @@ import styled from "styled-components";
 function Navbar() {
   return (
     <NavbarWrapper expand="lg">
-      <NavBar.Brand>
-        <Link to="/">ibotta</Link>
-      </NavBar.Brand>
+      <StyledBrand>
+        <StyledLink to="/">ibotta</StyledLink>
+      </StyledBrand>
       <NavBar.Toggle aria-controls="basic-navbar-nav" />
       <NavBar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Link to="/">Offers</Link>
+          <StyledLink to="/">Offers</StyledLink>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <StyledButton variant="outline-success">Search</StyledButton>
+          <Button variant="outline-success">Search</Button>
         </Form>
       </NavBar.Collapse>
     </NavbarWrapper>
   );
 }
 
-const StyledButton = styled(Button)``;
+const StyledLink = styled(Link)`
+  color: var(--mainWhite);
+`;
+
+const StyledBrand = styled(NavBar.Brand)`
+  font-weight: 700;
+`;
+
 const NavbarWrapper = styled(NavBar)`
   background: rgb(75, 146, 141);
 `;
+
 export default Navbar;
