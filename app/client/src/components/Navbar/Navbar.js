@@ -1,10 +1,29 @@
-import React from 'react';
+import React from "react";
+import { Link } from "@reach/router";
+import NavBar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 
 function Navbar() {
   return (
-    <div>
-      <h3>Navbar</h3>
-    </div>
+    <NavBar bg="light" expand="lg">
+      <NavBar.Brand>
+        <Link to="/">ibotta</Link>
+      </NavBar.Brand>
+      <NavBar.Toggle aria-controls="basic-navbar-nav" />
+      <NavBar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link />
+          <Nav.Link />
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-success">Search</Button>
+        </Form>
+      </NavBar.Collapse>
+    </NavBar>
   );
 }
 
