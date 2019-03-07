@@ -8,12 +8,16 @@ function Offer(props) {
   const { name, description, terms, image_url } = props.offer;
   return (
     <StyledCard>
-      <Img variant="top" src={image_url} />
+      <Img
+        variant="top"
+        src={image_url}
+        onClick={() => console.log("you clicked me")}
+      />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
       </Card.Body>
+      <Button variant="primary">Go somewhere</Button>
     </StyledCard>
   );
 }
@@ -23,8 +27,8 @@ const StyledCard = styled(Card)`
 `;
 const Img = styled(Card.Img)`
   object-fit: scale-down;
-  height: 280px;
-  width: 100px;
+  height: 296px;
+  width: 160px;
   align-self: center;
 `;
 

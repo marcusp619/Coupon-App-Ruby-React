@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Title from "../Title/Title";
 import styled from "styled-components";
 import { OfferContext } from "../Context/Context";
+import CardGroup from "react-bootstrap/CardGroup";
 import CardDeck from "react-bootstrap/CardDeck";
 
 function OfferList() {
@@ -16,13 +17,19 @@ function OfferList() {
     <Fragment>
       <Container>
         <Title name="our" title="offers" />
-        <Row>{offerCards}</Row>
+        <GridContainer>{offerCards}</GridContainer>
       </Container>
     </Fragment>
   );
 }
 const Container = styled.div`
   padding: 30px;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px 25px;
 `;
 
 export default OfferList;
