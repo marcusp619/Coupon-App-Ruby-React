@@ -7,7 +7,7 @@ const OfferContext = React.createContext();
 const OfferContextProvider = props => {
   const [offers, setOffers] = useState([]);
 
-  let value = { offers };
+  let value = { offers, handleOffer, addToCart };
 
   const fetchOffers = async () => {
     const response = await fetch("http://localhost:3000/home");
@@ -15,6 +15,14 @@ const OfferContextProvider = props => {
 
     setOffers(result);
   };
+
+  function handleOffer() {
+    console.log("hello from handle offer");
+  }
+
+  function addToCart() {
+    console.log("hello from add to cart");
+  }
 
   useEffect(() => {
     fetchOffers();

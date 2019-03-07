@@ -20,7 +20,7 @@ function OfferList() {
   );
 }
 const Container = styled.div`
-  padding: 5px;
+  padding: 30px;
 `;
 
 export default OfferList;
