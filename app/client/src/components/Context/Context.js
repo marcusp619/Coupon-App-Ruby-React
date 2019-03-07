@@ -16,6 +16,10 @@ const OfferContextProvider = props => {
     setOffers(result);
   };
 
+  useEffect(() => {
+    fetchOffers();
+  }, []);
+
   function handleOffer() {
     console.log("hello from handle offer");
   }
@@ -23,10 +27,6 @@ const OfferContextProvider = props => {
   function addToCart() {
     console.log("hello from add to cart");
   }
-
-  useEffect(() => {
-    fetchOffers();
-  }, []);
 
   return (
     <OfferContext.Provider value={value}>
