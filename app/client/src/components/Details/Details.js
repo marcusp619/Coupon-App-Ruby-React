@@ -1,11 +1,8 @@
-import React from 'react';
-
+import React from "react";
+import { OfferContextConsumer } from "../Context/Context";
+import { Link } from "@reach/router";
 function Details() {
-  return (
-    <div>
-      <h3>Details</h3>
-    </div>
-  );
+  return <OfferContextConsumer />;
 }
 
 export default Details;

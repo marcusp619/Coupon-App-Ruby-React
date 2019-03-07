@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import Navbar from "./Navbar/Navbar";
 import OfferList from "./OfferList/OfferList";
 import Cart from "./Cart/Cart";
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Router>
         <OfferList path="/" />
-        <Details path="/details" />
+        <Details path="/details/:id" />
         <Cart path="/cart" />
         <Default default />
       </Router>
