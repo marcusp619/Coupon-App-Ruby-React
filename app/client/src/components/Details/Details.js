@@ -1,7 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 function Details() {
-  return <Fragment>Details</Fragment>;
+  return (
+    <div>
+      <h3>Details</h3>
+    </div>
+  );
 }
 
 export default Details;
