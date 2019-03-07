@@ -25,6 +25,7 @@ const Img = styled(Card.Img)`
   object-fit: scale-down;
   height: 280px;
   width: 100px;
+  align-self: center;
 `;
 
 export default Offer;
