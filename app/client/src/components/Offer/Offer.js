@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 
 function Offer(props) {
-  const { name, description, terms, image_url } = props.offer;
+  const { name, description, terms, image_url, inCart } = props.offer;
   return (
     <StyledCard>
       <StyledLink to="/details">
@@ -32,8 +32,9 @@ Offer.propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
     terms: PropTypes.string,
-    image_url: PropTypes.string
-  })
+    image_url: PropTypes.string,
+    inCart: PropTypes.bool
+  }).isRequired
 };
 
 const StyledLink = styled(Link)`

@@ -11,7 +11,10 @@ const OfferContextProvider = props => {
 
   const fetchOffers = async () => {
     const response = await fetch("http://localhost:3000/home");
-    const result = await response.json();
+    const rawResults = await response.json();
+    const result = rawResults.map(data => {
+      return { ...data, inCart: false };
+    });
 
     setOffers(result);
   };
