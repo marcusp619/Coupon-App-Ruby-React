@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Router>
         <OfferList path="/" />
-        <Details path="/details" />
+        <Details path="/details/:id" />
         <Cart path="/cart" />
         <Default default />
       </Router>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const OfferContext = React.createContext();
-//Provider -- provides all the information
-//Consumer -- i think usecontext comes in here
 
 const OfferContextProvider = props => {
   const [offers, setOffers] = useState([]);

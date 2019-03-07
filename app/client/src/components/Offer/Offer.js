@@ -6,10 +6,10 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 
 function Offer(props) {
-  const { name, description, terms, image_url, inCart } = props.offer;
+  const { name, description, terms, image_url, inCart, id } = props.offer;
   return (
     <StyledCard>
-      <StyledLink to="/details">
+      <StyledLink to={`/details/${id}`}>
         <Img
           variant="top"
           src={image_url}
@@ -20,7 +20,11 @@ function Offer(props) {
         <Card.Title>{name}</Card.Title>
         <Card.Text>{description}</Card.Text>
       </Card.Body>
-      <Button variant="primary" onClick={() => console.log("add to cart")}>
+      <Button
+        variant="primary"
+        onClick={() => console.log("add to cart")}
+        disabled={inCart ? true : false}
+      >
         Add To Cart
       </Button>
     </StyledCard>
@@ -33,7 +37,8 @@ Offer.propTypes = {
     description: PropTypes.string,
     terms: PropTypes.string,
     image_url: PropTypes.string,
-    inCart: PropTypes.bool
+    inCart: PropTypes.bool,
+    id: PropTypes.number
   }).isRequired
 };
 
