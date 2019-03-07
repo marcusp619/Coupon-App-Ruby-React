@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 function Navbar() {
   return (
-    <Fragment>
+    <div>
       <h3>Navbar</h3>
-    </Fragment>
+    </div>
   );
 }
 

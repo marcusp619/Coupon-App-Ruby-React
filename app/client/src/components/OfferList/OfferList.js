@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import Offer from '../Offer/Offer';
 
 function OfferList() {
   return (
-    <Fragment>
-      <h3>OfferList</h3>
-    </Fragment>
+    <div>
+      <Offer />
+    </div>
   );
 }
 

@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 
 function Offer() {
   return (
-    <Fragment>
+    <div>
       <h3>Offer</h3>
-    </Fragment>
+    </div>
   );
 }
 
