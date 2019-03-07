@@ -5,6 +5,7 @@ import Cart from "./Cart/Cart";
 import Details from "./Details/Details";
 import Default from "./Default/Default";
 import { Router } from "@reach/router";
+
 function App() {
   return (
     <Fragment>
