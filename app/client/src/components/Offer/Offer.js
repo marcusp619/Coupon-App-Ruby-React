@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "@reach/router";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
 function Offer(props) {
   const { name, description, terms, image_url } = props.offer;
@@ -19,10 +20,21 @@ function Offer(props) {
         <Card.Title>{name}</Card.Title>
         <Card.Text>{description}</Card.Text>
       </Card.Body>
-      <Button variant="primary">Add To Cart</Button>
+      <Button variant="primary" onClick={() => console.log("add to cart")}>
+        Add To Cart
+      </Button>
     </StyledCard>
   );
 }
+
+Offer.propTypes = {
+  offer: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    terms: PropTypes.string,
+    image_url: PropTypes.string
+  })
+};
 
 const StyledLink = styled(Link)`
   display: grid;
