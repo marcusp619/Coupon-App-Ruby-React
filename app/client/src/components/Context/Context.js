@@ -4,22 +4,15 @@ const OfferContext = React.createContext();
 
 const OfferContextProvider = props => {
   const [offers, setOffers] = useState([]);
+  const [singleOffer, setSingleOffer] = useState({});
 
-  let value = { offers, handleOffer, addToCart };
+  let value = { offers, singleOffer, getOfferById, handleOffer, addToCart };
 
-  const fetchOffers = async () => {
-    const response = await fetch("http://localhost:3000/home");
-    const rawResults = await response.json();
-    const result = rawResults.map(data => {
-      return { ...data, inCart: false };
-    });
+  function getOfferById(id) {
+    const singleOffer = offers.find(offer => offer.id === id);
 
-    setOffers(result);
-  };
-
-  useEffect(() => {
-    fetchOffers();
-  }, []);
+    setSingleOffer(singleOffer);
+  }
 
   function handleOffer() {
     console.log("hello from handle offer");
@@ -28,6 +21,20 @@ const OfferContextProvider = props => {
   function addToCart() {
     console.log("hello from add to cart");
   }
+
+  async function fetchOffers() {
+    const response = await fetch("http://localhost:3000/home");
+    const rawResults = await response.json();
+    const result = rawResults.map(data => {
+      return { ...data, inCart: false };
+    });
+
+    setOffers(result);
+  }
+
+  useEffect(() => {
+    fetchOffers();
+  }, []);
 
   return (
     <OfferContext.Provider value={value}>
