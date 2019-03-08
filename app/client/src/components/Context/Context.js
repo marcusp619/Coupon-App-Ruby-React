@@ -34,8 +34,6 @@ const OfferContextProvider = props => {
     const singleOffer = offers.find(offer => offer.id === parseInt(id));
 
     setSingleOffer(singleOffer);
-
-    return singleOffer;
   }
 
   return (

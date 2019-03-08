@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { OfferContext } from "../Context/Context";
 import styled from "styled-components";
 import { Link } from "@reach/router";
 import Card from "react-bootstrap/Card";
@@ -6,15 +7,12 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 
 function Offer(props) {
+  const { getOfferById } = useContext(OfferContext);
   const { name, description, terms, image_url, inCart, id } = props.offer;
   return (
     <StyledCard>
       <StyledLink to={`/details/${id}`}>
-        <Img
-          variant="top"
-          src={image_url}
-          onClick={() => console.log("you clicked me")}
-        />
+        <Img variant="top" src={image_url} onClick={() => getOfferById(id)} />
       </StyledLink>
       <Card.Body>
         <Card.Title>{name}</Card.Title>

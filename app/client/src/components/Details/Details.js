@@ -6,12 +6,30 @@ import Col from "react-bootstrap/Col";
 
 function Details(props) {
   const [loading, setLoading] = useState(true);
-  const { getOfferById } = useContext(OfferContext);
-  const singleItem = getOfferById(props.id);
-
+  const { singleOffer } = useContext(OfferContext);
+  let { id, name, description, terms, image_url } = singleOffer;
+  console.log(singleOffer);
   return (
     <div>
-      {singleItem ? <h1>{singleItem.name}</h1> : <div>Loading....</div>}
+      {singleOffer ? (
+        <div className="container py-5">
+          <Row>
+            <Col>
+              <h1>{name}</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <img src={image_url} className="img-fluid" alt="item display" />
+            </Col>
+            <Col>
+              <p>{description}</p>
+            </Col>
+          </Row>
+        </div>
+      ) : (
+        <div>Loading....</div>
+      )}
     </div>
   );
 }
