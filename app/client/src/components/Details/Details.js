@@ -7,9 +7,10 @@ import Button from "react-bootstrap/Button";
 
 function Details(props) {
   const [loading, setLoading] = useState(true);
-  const { singleOffer } = useContext(OfferContext);
+  const { singleOffer, addToCart } = useContext(OfferContext);
   let { id, name, description, terms, image_url, inCart } = singleOffer;
   console.log(singleOffer);
+
   return (
     <div>
       {singleOffer ? (
@@ -39,10 +40,11 @@ function Details(props) {
           <Link to="/">Back To Products</Link>
         </Button>
         <Button
+          disabled={inCart ? true : false}
           variant="outline-primary"
-          onClick={() => console.log("add to cart")}
+          onClick={() => addToCart(id)}
         >
-          <Link to="/">Add To Cart</Link>
+          Add To Cart
         </Button>
       </div>
     </div>

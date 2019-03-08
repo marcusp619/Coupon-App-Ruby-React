@@ -13,8 +13,12 @@ const OfferContextProvider = props => {
     console.log("hello from handle offer");
   }
 
-  function addToCart() {
-    console.log("hello from add to cart");
+  function addToCart(id) {
+    getOfferById(id);
+    singleOffer.inCart = true;
+    const newCart = [singleOffer, ...cart];
+    console.log(newCart);
+    setCart(newCart);
   }
 
   async function fetchOffers() {
