@@ -8,12 +8,6 @@ const OfferContextProvider = props => {
 
   let value = { offers, singleOffer, getOfferById, handleOffer, addToCart };
 
-  function getOfferById(id) {
-    const singleOffer = offers.find(offer => offer.id === id);
-
-    setSingleOffer(singleOffer);
-  }
-
   function handleOffer() {
     console.log("hello from handle offer");
   }
@@ -35,6 +29,14 @@ const OfferContextProvider = props => {
   useEffect(() => {
     fetchOffers();
   }, []);
+
+  function getOfferById(id) {
+    const singleOffer = offers.find(offer => offer.id === parseInt(id));
+
+    setSingleOffer(singleOffer);
+
+    return singleOffer;
+  }
 
   return (
     <OfferContext.Provider value={value}>

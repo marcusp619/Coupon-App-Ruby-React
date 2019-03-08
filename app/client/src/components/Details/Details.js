@@ -1,18 +1,17 @@
-import React, { useState, useEffec } from "react";
-import { OfferContextConsumer } from "../Context/Context";
+import React, { useState, useEffect, useContext } from "react";
+import { OfferContext } from "../Context/Context";
 import { Link } from "@reach/router";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function Details(props) {
-  const [loading, isLoading] = useState(true);
-
-  if (loading) return <h1>Loading...</h1>;
+  const [loading, setLoading] = useState(true);
+  const { getOfferById } = useContext(OfferContext);
+  const singleItem = getOfferById(props.id);
 
   return (
     <div>
-      {/* {offers => {
-        console.log(offers);
-      }} */}
-      {console.log(props)}
+      {singleItem ? <h1>{singleItem.name}</h1> : <div>Loading....</div>}
     </div>
   );
 }
