@@ -3,6 +3,7 @@ import { OfferContext } from "../Context/Context";
 import { Link } from "@reach/router";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function Details(props) {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,20 @@ function Details(props) {
       ) : (
         <div>Loading....</div>
       )}
+      <div>
+        <Button
+          variant="outline-secondary"
+          onClick={() => console.log("Back To Products")}
+        >
+          <Link to="/">Back To Products</Link>
+        </Button>
+        <Button
+          variant="outline-primary"
+          onClick={() => console.log("add to cart")}
+        >
+          <Link to="/">Add To Cart</Link>
+        </Button>
+      </div>
     </div>
   );
 }
