@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 function Details(props) {
   const [loading, setLoading] = useState(true);
   const { singleOffer } = useContext(OfferContext);
-  let { id, name, description, terms, image_url } = singleOffer;
+  let { id, name, description, terms, image_url, inCart } = singleOffer;
   console.log(singleOffer);
   return (
     <div>
