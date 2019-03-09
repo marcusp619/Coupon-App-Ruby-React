@@ -7,9 +7,23 @@ import Button from "react-bootstrap/Button";
 
 function Details(props) {
   const [loading, setLoading] = useState(true);
-  const { singleOffer, addToCart } = useContext(OfferContext);
-  let { id, name, description, terms, image_url, inCart } = singleOffer;
-  console.log(singleOffer);
+  const { singleOffer, setSingleOffer, offers, setOffers } = useContext(
+    OfferContext
+  );
+  const { id, name, description, terms, image_url, inCart } = singleOffer;
+
+  function updateOffers() {
+    let tempOffer = { ...singleOffer, inCart: false };
+    let newOffers = offers.map(offer =>
+      offer.id === tempOffer.id ? singleOffer : offer
+    );
+
+    setOffers(newOffers);
+  }
+
+  useEffect(() => {
+    updateOffers();
+  }, [singleOffer]);
 
   return (
     <div>
@@ -33,16 +47,17 @@ function Details(props) {
         <div>Loading....</div>
       )}
       <div>
-        <Button
-          variant="outline-secondary"
-          onClick={() => console.log("Back To Products")}
-        >
+        <Button variant="outline-secondary">
           <Link to="/">Back To Products</Link>
         </Button>
         <Button
           disabled={inCart ? true : false}
           variant="outline-primary"
-          onClick={() => addToCart(id)}
+          onClick={() =>
+            setSingleOffer(prevSingleOffer => {
+              return { ...prevSingleOffer, inCart: true };
+            })
+          }
         >
           Add To Cart
         </Button>

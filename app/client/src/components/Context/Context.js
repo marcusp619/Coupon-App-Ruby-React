@@ -7,18 +7,19 @@ const OfferContextProvider = props => {
   const [singleOffer, setSingleOffer] = useState({});
   const [cart, setCart] = useState([]);
 
-  let value = { offers, singleOffer, getOfferById, handleOffer, addToCart };
+  let value = {
+    offers,
+    setOffers,
+    singleOffer,
+    setSingleOffer,
+    getOfferById,
+    handleOffer,
+    setCart,
+    cart
+  };
 
   function handleOffer() {
     console.log("hello from handle offer");
-  }
-
-  function addToCart(id) {
-    getOfferById(id);
-    singleOffer.inCart = true;
-    const newCart = [singleOffer, ...cart];
-    console.log(newCart);
-    setCart(newCart);
   }
 
   async function fetchOffers() {
@@ -36,9 +37,9 @@ const OfferContextProvider = props => {
   }, []);
 
   function getOfferById(id) {
-    const singleOffer = offers.find(offer => offer.id === parseInt(id));
+    const foundOffer = offers.find(offer => offer.id === parseInt(id));
 
-    setSingleOffer(singleOffer);
+    setSingleOffer(foundOffer);
   }
 
   return (

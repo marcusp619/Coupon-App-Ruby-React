@@ -7,8 +7,11 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 
 function Offer(props) {
-  const { getOfferById } = useContext(OfferContext);
+  const { getOfferById, addToCart, setSingleOffer, singleOffer } = useContext(
+    OfferContext
+  );
   const { name, description, terms, image_url, inCart, id } = props.offer;
+
   return (
     <StyledCard>
       <StyledLink to={`/details/${id}`}>
@@ -19,9 +22,9 @@ function Offer(props) {
         <Card.Text>{description}</Card.Text>
       </Card.Body>
       <Button
-        variant="primary"
-        onClick={() => console.log("add to cart")}
         disabled={inCart ? true : false}
+        variant="outline-primary"
+        onClick={() => addToCart(id)}
       >
         Add To Cart
       </Button>
