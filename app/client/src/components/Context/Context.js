@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const OfferContext = React.createContext();
 
@@ -6,6 +6,7 @@ const OfferContextProvider = props => {
   const [offers, setOffers] = useState([]);
   const [singleOffer, setSingleOffer] = useState({});
   const [cart, setCart] = useState([]);
+  const justMounted = useRef(true);
 
   let value = {
     offers,
@@ -54,9 +55,10 @@ const OfferContextProvider = props => {
   }, []);
 
   useEffect(() => {
-    if (Object.keys(singleOffer).length > 1) {
+    if (!justMounted.current) {
       updateCart();
     }
+    justMounted.current = false;
   }, [singleOffer]);
 
   return (

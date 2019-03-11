@@ -8,17 +8,17 @@ browser as a single page application.
 
 ### Requirements
 
-- [ ] Define a JSON API for consumption by the client
-- [ ] Build a single page application (SPA) using a JavaScript frontend framework or library
-- [ ] Asynchronously request the data needed for your SPA from your Rails API
-- [ ] Display all offers in a gallery view
-- [ ] Display an individual offer in a detail view
+- [x] Define a JSON API for consumption by the client
+- [x] Build a single page application (SPA) using a JavaScript frontend framework or library
+- [x] Asynchronously request the data needed for your SPA from your Rails API
+- [x] Display all offers in a gallery view
+- [x] Display an individual offer in a detail view
 - [ ] Application is well tested
 - [ ] Provide code in a private git repo (hosted or in an archive)
 
 ### Nice to have
 
-- [ ] Track offer views
+- [x] Track offer views
 - [ ] Search for offers
 - [ ] Filter offers in the gallery by retailer
 - [ ] Display retailer info for an offer
