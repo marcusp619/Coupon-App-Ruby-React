@@ -1,29 +1,37 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "@reach/router";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
+import React, { useContext, useEffect } from 'react';
+import { OfferContext } from '../Context/Context';
+import styled from 'styled-components';
+import { Link } from '@reach/router';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 function Offer(props) {
-  const { name, description, terms, image_url, inCart, id } = props.offer;
+  const {
+    getOfferById,
+    singleOffer,
+    updateOffers,
+    setSingleOffer
+  } = useContext(OfferContext);
+  const { name, terms, image_url, inCart, id } = props.offer;
+
+  useEffect(() => {
+    updateOffers();
+  }, [singleOffer]);
+
   return (
     <StyledCard>
       <StyledLink to={`/details/${id}`}>
-        <Img
-          variant="top"
-          src={image_url}
-          onClick={() => console.log("you clicked me")}
-        />
+        <Img variant="top" src={image_url} onClick={() => getOfferById(id)} />
       </StyledLink>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text>{terms}</Card.Text>
       </Card.Body>
       <Button
-        variant="primary"
-        onClick={() => console.log("add to cart")}
         disabled={inCart ? true : false}
+        variant="outline-primary"
+        onClick={() => setSingleOffer({ ...props.offer, inCart: true })}
       >
         Add To Cart
       </Button>
