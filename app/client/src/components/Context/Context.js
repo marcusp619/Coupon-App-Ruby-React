@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const OfferContext = React.createContext();
 
@@ -13,17 +13,12 @@ const OfferContextProvider = props => {
     singleOffer,
     setSingleOffer,
     getOfferById,
-    handleOffer,
     setCart,
     cart
   };
 
-  function handleOffer() {
-    console.log("hello from handle offer");
-  }
-
   async function fetchOffers() {
-    const response = await fetch("http://localhost:3000/home");
+    const response = await fetch('http://localhost:3000/home');
     const rawResults = await response.json();
     const result = rawResults.map(data => {
       return { ...data, inCart: false };
