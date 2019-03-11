@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
-import { OfferContext } from "../Context/Context";
-import styled from "styled-components";
-import { Link } from "@reach/router";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import PropTypes from "prop-types";
+import React, { useContext } from 'react';
+import { OfferContext } from '../Context/Context';
+import styled from 'styled-components';
+import { Link } from '@reach/router';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 function Offer(props) {
-  const { getOfferById, addToCart, setSingleOffer, singleOffer } = useContext(
-    OfferContext
-  );
-  const { name, description, terms, image_url, inCart, id } = props.offer;
+  const { getOfferById, addToCart } = useContext(OfferContext);
+  const { name, terms, image_url, inCart, id } = props.offer;
 
   return (
     <StyledCard>
@@ -19,7 +17,7 @@ function Offer(props) {
       </StyledLink>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text>{terms}</Card.Text>
       </Card.Body>
       <Button
         disabled={inCart ? true : false}

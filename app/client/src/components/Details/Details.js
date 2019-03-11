@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
-import { OfferContext } from "../Context/Context";
-import { Link } from "@reach/router";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import React, { useEffect, useContext, useRef } from 'react';
+import { OfferContext } from '../Context/Context';
+import { Link } from '@reach/router';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
-function Details(props) {
-  const [loading, setLoading] = useState(true);
+function Details() {
   const { singleOffer, setSingleOffer, offers, setOffers } = useContext(
     OfferContext
   );
+  const justMounted = useRef(true);
   const { id, name, description, terms, image_url, inCart } = singleOffer;
 
   function updateOffers() {
