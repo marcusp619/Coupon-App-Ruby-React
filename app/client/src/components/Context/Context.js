@@ -10,6 +10,7 @@ const OfferContextProvider = props => {
   let value = {
     offers,
     setOffers,
+    updateOffers,
     singleOffer,
     setSingleOffer,
     getOfferById,
@@ -27,15 +28,36 @@ const OfferContextProvider = props => {
     setOffers(result);
   }
 
-  useEffect(() => {
-    fetchOffers();
-  }, []);
-
   function getOfferById(id) {
     const foundOffer = offers.find(offer => offer.id === parseInt(id));
 
     setSingleOffer(foundOffer);
   }
+
+  function updateOffers() {
+    let tempOffer = { ...singleOffer, inCart: false };
+    let newOffers = offers.map(offer =>
+      offer.id === tempOffer.id ? singleOffer : offer
+    );
+
+    setOffers(newOffers);
+  }
+
+  function updateCart() {
+    setCart(prevCart => {
+      return [singleOffer, ...prevCart];
+    });
+  }
+
+  useEffect(() => {
+    fetchOffers();
+  }, []);
+
+  useEffect(() => {
+    if (Object.keys(singleOffer).length > 1) {
+      updateCart();
+    }
+  }, [singleOffer]);
 
   return (
     <OfferContext.Provider value={value}>

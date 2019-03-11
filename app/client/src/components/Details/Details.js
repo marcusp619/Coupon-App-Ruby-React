@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useRef } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { OfferContext } from '../Context/Context';
 import { Link } from '@reach/router';
 import Row from 'react-bootstrap/Row';
@@ -6,20 +6,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 function Details() {
-  const { singleOffer, setSingleOffer, offers, setOffers } = useContext(
+  const { singleOffer, setSingleOffer, updateOffers } = useContext(
     OfferContext
   );
-  const justMounted = useRef(true);
-  const { id, name, description, terms, image_url, inCart } = singleOffer;
-
-  function updateOffers() {
-    let tempOffer = { ...singleOffer, inCart: false };
-    let newOffers = offers.map(offer =>
-      offer.id === tempOffer.id ? singleOffer : offer
-    );
-
-    setOffers(newOffers);
-  }
+  const { name, description, image_url, inCart } = singleOffer;
 
   useEffect(() => {
     updateOffers();
