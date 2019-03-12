@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 import NavBar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
+import Search from '../Search/Search';
 import Cart from '../Cart/Cart';
 import styled from 'styled-components';
 
@@ -19,10 +17,7 @@ function Navbar() {
         <Nav className="mr-auto">
           <StyledLink to="/">Offers</StyledLink>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="success">Search</Button>
-        </Form>
+        <Search />
         <Cart />
       </NavBar.Collapse>
     </NavbarWrapper>
