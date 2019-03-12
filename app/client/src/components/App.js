@@ -6,7 +6,6 @@ import Details from './Details/Details';
 import Default from './Default/Default';
 import { Router } from '@reach/router';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faShoppingCart);
