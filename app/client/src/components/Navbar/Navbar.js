@@ -1,17 +1,18 @@
-import React from "react";
-import { Link } from "@reach/router";
-import NavBar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from '@reach/router';
+import NavBar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+import Cart from '../Cart/Cart';
+import styled from 'styled-components';
 
 function Navbar() {
   return (
     <NavbarWrapper expand="lg">
       <StyledBrand>
-        <StyledLink to="/">ibotta</StyledLink>
+        <StyledLink to="/">Brand</StyledLink>
       </StyledBrand>
       <NavBar.Toggle aria-controls="basic-navbar-nav" />
       <NavBar.Collapse id="basic-navbar-nav">
@@ -22,6 +23,7 @@ function Navbar() {
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="success">Search</Button>
         </Form>
+        <Cart />
       </NavBar.Collapse>
     </NavbarWrapper>
   );
