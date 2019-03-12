@@ -12,7 +12,9 @@ function Details() {
   const { name, description, image_url, inCart } = singleOffer;
 
   useEffect(() => {
-    updateOffers();
+    if (inCart === true) {
+      updateOffers();
+    }
   }, [singleOffer]);
 
   return (

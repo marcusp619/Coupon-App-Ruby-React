@@ -54,7 +54,7 @@ const OfferContextProvider = props => {
   }, []);
 
   useEffect(() => {
-    if (Object.keys(singleOffer).length > 1) {
+    if (singleOffer.inCart) {
       updateCart();
     }
   }, [singleOffer]);

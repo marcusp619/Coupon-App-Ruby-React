@@ -16,7 +16,6 @@ function Cart() {
         {offer.name}
       </Dropdown.Item>
     ));
-    console.log(dropDownItems);
   }
 
   return (

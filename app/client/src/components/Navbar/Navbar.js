@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <NavbarWrapper expand="lg">
       <StyledBrand>
-        <StyledLink to="/">ibotta</StyledLink>
+        <StyledLink to="/">Brand</StyledLink>
       </StyledBrand>
       <NavBar.Toggle aria-controls="basic-navbar-nav" />
       <NavBar.Collapse id="basic-navbar-nav">
