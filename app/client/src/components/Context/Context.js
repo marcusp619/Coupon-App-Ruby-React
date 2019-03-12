@@ -4,6 +4,7 @@ const OfferContext = React.createContext();
 
 const OfferContextProvider = props => {
   const [offers, setOffers] = useState([]);
+  const [filteredOffers, setFilteredOffers] = useState([]);
   const [singleOffer, setSingleOffer] = useState({});
   const [cart, setCart] = useState([]);
 
@@ -11,6 +12,8 @@ const OfferContextProvider = props => {
     offers,
     setOffers,
     updateOffers,
+    filteredOffers,
+    setFilteredOffers,
     singleOffer,
     setSingleOffer,
     getOfferById,

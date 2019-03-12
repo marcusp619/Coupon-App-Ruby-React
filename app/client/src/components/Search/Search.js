@@ -1,17 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { OfferContext } from '../Context/Context';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
 
 function Search() {
   const [value, setValue] = useState('');
+  const { offers, setFilteredOffers } = useContext(OfferContext);
 
   function handleValueChange(event) {
     setValue(event.target.value);
   }
 
+  function handleSubmit(event) {
+    const newOffers = offers.filter(
+      offer => offer.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+    );
+
+    if (newOffers.length > 0) {
+      setFilteredOffers(newOffers);
+      setValue('');
+    } else {
+      return;
+    }
+    event.preventDefault();
+  }
+
   return (
-    <Form inline>
+    <Form inline onSubmit={handleSubmit}>
       <FormControl
         type="text"
         value={value}
@@ -19,7 +34,6 @@ function Search() {
         onChange={handleValueChange}
         className="mr-sm-2"
       />
-      <Button variant="success">Search</Button>
     </Form>
   );
 }
