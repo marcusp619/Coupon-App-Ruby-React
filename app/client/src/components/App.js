@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
 import OfferList from './OfferList/OfferList';
 import Cart from './Cart/Cart';
@@ -11,11 +11,27 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 library.add(faShoppingCart);
 
 function App() {
+  const [offers, setOffers] = useState([]);
+
+  async function fetchOffers() {
+    const response = await fetch('http://localhost:3000/home');
+    const rawResults = await response.json();
+    const result = rawResults.map(data => {
+      return { ...data, inCart: false };
+    });
+
+    setOffers(result);
+  }
+
+  useEffect(() => {
+    fetchOffers();
+  }, []);
+
   return (
     <Fragment>
       <Navbar />
       <Router>
-        <OfferList path="/" />
+        <OfferList offers={offers} path="/" />
         <Details path="/details/:id" />
         <Cart path="/cart" />
         <Default default />
