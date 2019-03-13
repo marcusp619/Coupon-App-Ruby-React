@@ -1,31 +1,42 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Badge from 'react-bootstrap/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { OfferContext } from '../Context/Context';
 import styled from 'styled-components';
 
-function Cart() {
-  const { cart } = useContext(OfferContext);
-  let dropDownItems;
+function Cart(props) {
+  const { cart } = props;
 
-  if (cart.length >= 1) {
-    dropDownItems = cart.map(offer => (
+  if (cart !== undefined) {
+    let dropDownItems = cart.map(offer => (
       <Dropdown.Item key={offer.id}>
         <StyledImg src={offer.image_url} />
         {offer.name}
       </Dropdown.Item>
     ));
+
+    return (
+      <Dropdown drop="left">
+        <StyledButton variant="primary">
+          <FontAwesomeIcon icon="shopping-cart" />
+          <Badge variant="Light">{cart.length}</Badge>
+
+          <Dropdown.Menu>
+            {dropDownItems && <div>{dropDownItems}</div>}
+          </Dropdown.Menu>
+        </StyledButton>
+      </Dropdown>
+    );
   }
 
   return (
     <Dropdown drop="left">
       <StyledButton variant="primary">
         <FontAwesomeIcon icon="shopping-cart" />
-        <Badge variant="Light">{cart.length}</Badge>
+        <Badge variant="Light">0</Badge>
 
         <Dropdown.Menu>
-          {dropDownItems && <div>{dropDownItems}</div>}
+          <Dropdown.Item> Nothing In Cart </Dropdown.Item>
         </Dropdown.Menu>
       </StyledButton>
     </Dropdown>

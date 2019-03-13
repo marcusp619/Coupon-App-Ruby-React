@@ -63,7 +63,7 @@ function App() {
       <Router>
         <OfferList offers={offers} filteredOffers={filteredOffers} path="/" />
         <Details path="/details/:id" />
-        <Cart path="/cart" />
+        <Cart cart={cart} path="/cart" />
         <Default default />
       </Router>
     </Fragment>
