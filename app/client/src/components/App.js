@@ -80,7 +80,11 @@ function App() {
           updateOffers={updateOffers}
           path="/"
         />
-        <Details path="/details/:id" />
+        <Details
+          setSingleOffer={setSingleOffer}
+          singleOffer={singleOffer}
+          path="/details/:id"
+        />
         <Cart cart={cart} path="/cart" />
         <Default default />
       </Router>
