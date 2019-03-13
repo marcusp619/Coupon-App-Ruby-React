@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { OfferContext } from '../Context/Context';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
-function Search() {
+function Search(props) {
+  const { offers, setFilteredOffers } = props;
   const [value, setValue] = useState('');
-  const { offers, setFilteredOffers } = useContext(OfferContext);
+  // const { offers, setFilteredOffers } = useContext(OfferContext);
 
   function handleValueChange(event) {
     setValue(event.target.value);

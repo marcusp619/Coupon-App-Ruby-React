@@ -12,6 +12,7 @@ library.add(faShoppingCart);
 
 function App() {
   const [offers, setOffers] = useState([]);
+  const [filteredOffers, setFilteredOffers] = useState([]);
 
   async function fetchOffers() {
     const response = await fetch('http://localhost:3000/home');
@@ -29,9 +30,9 @@ function App() {
 
   return (
     <Fragment>
-      <Navbar />
+      <Navbar offers={offers} setFilteredOffers={setFilteredOffers} />
       <Router>
-        <OfferList offers={offers} path="/" />
+        <OfferList offers={offers} filteredOffers={filteredOffers} path="/" />
         <Details path="/details/:id" />
         <Cart path="/cart" />
         <Default default />
