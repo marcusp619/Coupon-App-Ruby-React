@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { OfferContext } from '../Context/Context';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
 import Card from 'react-bootstrap/Card';
@@ -7,12 +6,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
 function Offer(props) {
-  const {
-    getOfferById,
-    singleOffer,
-    updateOffers,
-    setSingleOffer
-  } = useContext(OfferContext);
+  const { setSingleOffer, singleOffer, getOfferById, updateOffers } = props;
   const { name, terms, image_url, inCart, id } = props.offer;
 
   useEffect(() => {

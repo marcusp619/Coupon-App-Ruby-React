@@ -6,35 +6,49 @@ import { Link } from '@reach/router';
 import styled from 'styled-components';
 
 function OfferList(props) {
-  // const { offers, filteredOffers, setFilteredOffers } = useContext(
-  //   OfferContext
-  // );
-  const { offers } = props;
+  const {
+    offers,
+    filteredOffers,
+    setFilteredOffers,
+    getOfferById,
+    singleOffer,
+    setSingleOffer,
+    updateOffers
+  } = props;
 
   let offerCards = offers.map(offer => {
+    return (
+      <Offer
+        key={offer.id}
+        offer={offer}
+        setSingleOffer={setSingleOffer}
+        singleOffer={singleOffer}
+        getOfferById={getOfferById}
+        updateOffers={updateOffers}
+      />
+    );
+  });
+
+  let filteredOfferCards = filteredOffers.map(offer => {
     return <Offer key={offer.id} offer={offer} />;
   });
 
-  // let filteredOfferCards = filteredOffers.map(offer => {
-  //   return <Offer key={offer.id} offer={offer} />;
-  // });
-
-  // if (filteredOfferCards.length > 0) {
-  //   return (
-  //     <Fragment>
-  //       <Container>
-  //         <Title name="Your" title="Search Results" />
-  //         <GridContainer>{filteredOfferCards}</GridContainer>
-  //         <Button
-  //           variant="outline-secondary"
-  //           onClick={() => setFilteredOffers([])}
-  //         >
-  //           <Link to="/">Back To Products</Link>
-  //         </Button>
-  //       </Container>
-  //     </Fragment>
-  //   );
-  // }
+  if (filteredOfferCards.length > 0) {
+    return (
+      <Fragment>
+        <Container>
+          <Title name="Your" title="Search Results" />
+          <GridContainer>{filteredOfferCards}</GridContainer>
+          <Button
+            variant="outline-secondary"
+            onClick={() => setFilteredOffers([])}
+          >
+            <Link to="/">Back To Products</Link>
+          </Button>
+        </Container>
+      </Fragment>
+    );
+  }
 
   return (
     <Fragment>

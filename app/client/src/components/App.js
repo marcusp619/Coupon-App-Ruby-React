@@ -61,7 +61,16 @@ function App() {
     <Fragment>
       <Navbar offers={offers} setFilteredOffers={setFilteredOffers} />
       <Router>
-        <OfferList offers={offers} filteredOffers={filteredOffers} path="/" />
+        <OfferList
+          offers={offers}
+          filteredOffers={filteredOffers}
+          setFilteredOffers={setFilteredOffers}
+          getOfferById={getOfferById}
+          singleOffer={singleOffer}
+          setSingleOffer={setSingleOffer}
+          updateOffers={updateOffers}
+          path="/"
+        />
         <Details path="/details/:id" />
         <Cart cart={cart} path="/cart" />
         <Default default />
