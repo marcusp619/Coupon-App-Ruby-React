@@ -8,6 +8,7 @@ function Cart(props) {
   const { cart } = props;
 
   if (cart !== undefined) {
+    console.log('running');
     let dropDownItems = cart.map(offer => (
       <Dropdown.Item key={offer.id}>
         <StyledImg src={offer.image_url} />

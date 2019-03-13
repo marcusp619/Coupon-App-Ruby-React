@@ -34,6 +34,7 @@ function App() {
 
   function updateOffers() {
     let tempOffer = { ...singleOffer, inCart: false };
+    console.log(tempOffer);
     let newOffers = offers.map(offer =>
       offer.id === tempOffer.id ? singleOffer : offer
     );
@@ -54,12 +55,20 @@ function App() {
   }, [singleOffer]);
 
   useEffect(() => {
+    updateOffers();
+  }, [singleOffer]);
+
+  useEffect(() => {
     fetchOffers();
   }, []);
 
   return (
     <Fragment>
-      <Navbar offers={offers} setFilteredOffers={setFilteredOffers} />
+      <Navbar
+        offers={offers}
+        setFilteredOffers={setFilteredOffers}
+        cart={cart}
+      />
       <Router>
         <OfferList
           offers={offers}

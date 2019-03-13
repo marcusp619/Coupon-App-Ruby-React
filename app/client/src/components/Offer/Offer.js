@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@reach/router';
 import Card from 'react-bootstrap/Card';
@@ -6,12 +6,8 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
 function Offer(props) {
-  const { setSingleOffer, singleOffer, getOfferById, updateOffers } = props;
-  const { name, terms, image_url, inCart, id } = props.offer;
-
-  useEffect(() => {
-    updateOffers();
-  }, [singleOffer]);
+  const { setSingleOffer, getOfferById, offer } = props;
+  const { name, terms, image_url, inCart, id } = offer;
 
   return (
     <StyledCard>
@@ -25,7 +21,7 @@ function Offer(props) {
       <Button
         disabled={inCart ? true : false}
         variant="outline-primary"
-        onClick={() => setSingleOffer({ ...props.offer, inCart: true })}
+        onClick={() => setSingleOffer({ ...offer, inCart: true })}
       >
         Add To Cart
       </Button>

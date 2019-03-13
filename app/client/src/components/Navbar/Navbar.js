@@ -7,7 +7,7 @@ import Cart from '../Cart/Cart';
 import styled from 'styled-components';
 
 function Navbar(props) {
-  const { offers, setFilteredOffers } = props;
+  const { offers, setFilteredOffers, cart } = props;
   return (
     <NavbarWrapper expand="lg">
       <StyledBrand>
@@ -19,7 +19,7 @@ function Navbar(props) {
           <StyledLink to="/">Offers</StyledLink>
         </Nav>
         <Search offers={offers} setFilteredOffers={setFilteredOffers} />
-        <Cart />
+        <Cart cart={cart} />
       </NavBar.Collapse>
     </NavbarWrapper>
   );
