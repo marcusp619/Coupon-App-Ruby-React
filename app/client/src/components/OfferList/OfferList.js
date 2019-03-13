@@ -9,8 +9,9 @@ function OfferList(props) {
   // const { offers, filteredOffers, setFilteredOffers } = useContext(
   //   OfferContext
   // );
+  const { offers } = props;
 
-  let offerCards = props.offers.map(offer => {
+  let offerCards = offers.map(offer => {
     return <Offer key={offer.id} offer={offer} />;
   });
 
