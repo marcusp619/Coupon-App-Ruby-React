@@ -1,21 +1,12 @@
-import React, { useEffect, useContext } from 'react';
-import { OfferContext } from '../Context/Context';
+import React from 'react';
 import { Link } from '@reach/router';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-function Details() {
-  const { singleOffer, setSingleOffer, updateOffers } = useContext(
-    OfferContext
-  );
+function Details(props) {
+  const { singleOffer, setSingleOffer } = props;
   const { name, description, image_url, inCart } = singleOffer;
-
-  useEffect(() => {
-    if (inCart === true) {
-      updateOffers();
-    }
-  }, [singleOffer]);
 
   return (
     <div>

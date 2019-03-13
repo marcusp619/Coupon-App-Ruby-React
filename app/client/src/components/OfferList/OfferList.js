@@ -1,17 +1,32 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import Offer from '../Offer/Offer';
 import Title from '../Title/Title';
 import Button from 'react-bootstrap/Button';
 import { Link } from '@reach/router';
 import styled from 'styled-components';
-import { OfferContext } from '../Context/Context';
 
-function OfferList() {
-  const { offers, filteredOffers, setFilteredOffers } = useContext(
-    OfferContext
-  );
+function OfferList(props) {
+  const {
+    offers,
+    filteredOffers,
+    setFilteredOffers,
+    getOfferById,
+    singleOffer,
+    setSingleOffer,
+    updateOffers
+  } = props;
+
   let offerCards = offers.map(offer => {
-    return <Offer key={offer.id} offer={offer} />;
+    return (
+      <Offer
+        key={offer.id}
+        offer={offer}
+        setSingleOffer={setSingleOffer}
+        singleOffer={singleOffer}
+        getOfferById={getOfferById}
+        updateOffers={updateOffers}
+      />
+    );
   });
 
   let filteredOfferCards = filteredOffers.map(offer => {
