@@ -13,6 +13,8 @@ library.add(faShoppingCart);
 function App() {
   const [offers, setOffers] = useState([]);
   const [filteredOffers, setFilteredOffers] = useState([]);
+  const [singleOffer, setSingleOffer] = useState({});
+  const [cart, setCart] = useState([]);
 
   async function fetchOffers() {
     const response = await fetch('http://localhost:3000/home');
@@ -23,6 +25,33 @@ function App() {
 
     setOffers(result);
   }
+
+  function getOfferById(id) {
+    const foundOffer = offers.find(offer => offer.id === parseInt(id));
+
+    setSingleOffer(foundOffer);
+  }
+
+  function updateOffers() {
+    let tempOffer = { ...singleOffer, inCart: false };
+    let newOffers = offers.map(offer =>
+      offer.id === tempOffer.id ? singleOffer : offer
+    );
+
+    setOffers(newOffers);
+  }
+
+  function updateCart() {
+    setCart(prevCart => {
+      return [singleOffer, ...prevCart];
+    });
+  }
+
+  useEffect(() => {
+    if (singleOffer.inCart) {
+      updateCart();
+    }
+  }, [singleOffer]);
 
   useEffect(() => {
     fetchOffers();
