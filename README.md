@@ -70,3 +70,6 @@ npm start
 cd ../..
 rails s
 ```
+![pic](https://github.com/marcusp619/Coupon-App-Ruby-React/blob/master/Screen%20Shot%202019-05-08%20at%2012.04.58%20PM.png)
+![pic](https://github.com/marcusp619/Coupon-App-Ruby-React/blob/master/Screen%20Shot%202019-05-08%20at%2012.05.27%20PM.png)
+![pic](https://github.com/marcusp619/Coupon-App-Ruby-React/blob/master/Screen%20Shot%202019-05-08%20at%2012.06.04%20PM.png)
